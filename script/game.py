@@ -18,7 +18,7 @@ class Game:
         running = True
         while running:
             running = self.handle_events()
-            if running:  
+            if running:
                 self.update()
                 self.render()
             self.clock.tick(60)
