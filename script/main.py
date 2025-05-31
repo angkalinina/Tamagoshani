@@ -10,25 +10,25 @@ screen_height = info.current_h
 
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Shanezhka')
-icon = pygame.image.load('images/icon.png')
+icon = pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/images/icon.png')
 pygame.display.set_icon(icon)
 
-background = pygame.image.load('images/background.png')
+background = pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/images/background.png')
 animations = {
     'idle': [
-        pygame.image.load('animations/idle/IdleAnim1.png'),
-        pygame.image.load('animations/idle/IdleAnim2.png'),
-        pygame.image.load('animations/idle/IdleAnim3.png'),
+        pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/idle/IdleAnim1.png'),
+        pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/idle/IdleAnim2.png'),
+        pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/idle/IdleAnim3.png'),
     ],
     'walk_right': [
-        pygame.image.load('animations/walk_right/WalkAnimRight1.png'),
-        pygame.image.load('animations/walk_right/WalkAnimRight2.png'),
-        pygame.image.load('animations/walk_right/WalkAnimRight3.png'),
+        pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/walk_right/WalkAnimRight1.png'),
+        pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/walk_right/WalkAnimRight2.png'),
+        pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/walk_right/WalkAnimRight3.png'),
     ],
     'walk_left': [
-        pygame.image.load('animations/walk_left/WalkAnimLeft1.png'),
-        pygame.image.load('animations/walk_left/WalkAnimLeft2.png'),
-        pygame.image.load('animations/walk_left/WalkAnimLeft3.png'),
+        pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/walk_left/WalkAnimLeft1.png'),
+        pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/walk_left/WalkAnimLeft2.png'),
+        pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/walk_left/WalkAnimLeft3.png'),
     ]
 }
 
@@ -80,7 +80,6 @@ while running:
 
     if current_state == 'walk_right':
         player_x += move_speed
-
 
     if current_state == 'walk_left':
         player_x -= move_speed
