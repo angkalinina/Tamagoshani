@@ -2,7 +2,7 @@
 
 def load_assets(asset_type):
     if asset_type == 'background':
-        return pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/images/background.png')
+        return pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/images/background.jpg')
 
 
 def load_animations():
