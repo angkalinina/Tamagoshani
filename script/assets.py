@@ -21,6 +21,26 @@ def load_animations():
             pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/walk_left/WalkAnimLeft1.png'),
             pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/walk_left/WalkAnimLeft2.png'),
             pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/walk_left/WalkAnimLeft3.png'),
+        ],
+        'refuse': [
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+        ],
+        'sleep': [
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+        ],
+        'eat': [
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+        ],
+        'play': [
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
+            pygame.image.load('C:/Users/angel/PycharmProjects/Tamagoshani/animations/.png'),
         ]
     }
     return animations
