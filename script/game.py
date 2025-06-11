@@ -4,6 +4,13 @@ from PlayerState import PlayerState
 from PlayerActions import PlayerActions
 
 
+def handle_events():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            return False
+    return True
+
+
 class Game:
     def __init__(self):
 
@@ -26,17 +33,11 @@ class Game:
     def run(self):
         running = True
         while running:
-            running = self.handle_events()
+            running = handle_events()
             if running:
                 self.update()
                 self.render()
             self.clock.tick(60)
-
-    def handle_events(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return False
-        return True
 
     def update(self):
 
