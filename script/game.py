@@ -46,13 +46,10 @@ class Game:
         self.player_state.handle_input()
 
     def render(self):
-        self.screen.blit(self.background, (0, 0))
-
+        frame = self.player_state.animations[self.player_state.current_state][0]  # Пока без анимации
+        x, y = self.player_state.get_position()
+        self.screen.blit(frame, (x, y))
 
         pygame.display.update()
 
 
-if __name__ == "__main__":
-    game = Game()
-    game.run()
-    pygame.quit()

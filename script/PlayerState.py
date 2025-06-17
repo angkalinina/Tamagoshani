@@ -1,6 +1,6 @@
 ﻿import random
 import pygame
-from script.assets import load_animations
+from assets import load_animations
 
 
 class PlayerState:
