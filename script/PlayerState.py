@@ -1,14 +1,16 @@
 ﻿import random
 import pygame
 from assets import load_animations
+from TimeManager import should_notify
 
 
 class PlayerState:
     def __init__(self, screen_width, screen_height):
         self.animations = load_animations()
         self.current_state = 'idle'
-        self.player_x = (screen_width - 100) // 2
-        self.player_y = (screen_height - 100) // 2
+        self.sprite_size = 100  # Размер спрайта
+        self.player_x = (screen_width - self.sprite_size) // 2
+        self.player_y = screen_height - self.sprite_size - 20  # немного выше нижнего края
         self.move_speed = 5
         self.idle_start_time = 0
         self.hunger = 100
@@ -24,6 +26,8 @@ class PlayerState:
         self.update_stats()
         if self.current_state == 'idle' and pygame.time.get_ticks() - self.idle_start_time > 5000:
             self.change_state(random.choice(['walk_right', 'walk_left']))
+        if should_notify():
+            print("Пора покормить тамагочи!")
 
     def update_stats(self):
         state_effects = {
@@ -31,7 +35,8 @@ class PlayerState:
             'walk_right': (-0.3, -0.3),
             'walk_left': (-0.3, -0.3),
             'eat': (30, 10),
-            'sleep': (0.5 if self.energy < 3 and self.hunger < 3 else 0, 0.5 if self.energy < 3 and self.hunger < 3 else 0)
+            'sleep': (0.5 if self.energy < 3 and self.hunger < 3 else 0,
+                      0.5 if self.energy < 3 and self.hunger < 3 else 0)
         }
 
         hunger_change, energy_change = state_effects.get(self.current_state, (0, 0))
