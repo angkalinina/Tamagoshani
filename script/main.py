@@ -1,5 +1,5 @@
 ﻿import pygame
-from game import Game
+from bot.handlers.game import Game
 
 def main():
     pygame.init()
