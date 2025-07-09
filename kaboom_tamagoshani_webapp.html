@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tamagoshani WebApp</title>
+  <style>
+    body { margin: 0; background: #1a1a1a; overflow: hidden; }
+    canvas { display: block; margin: auto; }
+    #controls {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <button onclick="setState('idle')">Idle</button>
+    <button onclick="setState('eat')">Eat</button>
+    <button onclick="setState('play_left')">Play ←</button>
+    <button onclick="setState('play_right')">Play →</button>
+    <button onclick="setState('sleep')">Sleep</button>
+    <button onclick="setState('refuse')">Refuse</button>
+    <button onclick="setState('walk_left')">Walk ←</button>
+    <button onclick="setState('walk_right')">Walk →</button>
+  </div>
+
+  <script type="module">
+    import kaboom from "https://unpkg.com/kaboom@3000.0.0-beta.1/dist/kaboom.mjs"
+
+    kaboom({
+      width: 360,
+      height: 640,
+      background: [26, 26, 26],
+      scale: 1,
+      canvas: document.createElement("canvas"),
+    })
+
+    document.body.appendChild(kaboom().canvas)
+
+    const states = [
+      "idle", "eat", "play_left", "play_right",
+      "sleep", "refuse", "walk_left", "walk_right"
+    ]
+
+    const animations = {}
+
+loadSprite("eat", "animations/eat/sprite.png", {
+  sliceX: 2,
+  sliceY: 1,
+  anims: {
+    default: { from: 0, to: 1, loop: true, speed: 8 },
+  },
+});
+
+loadSprite("idle", "animations/idle/sprite.png", {
+  sliceX: 2,
+  sliceY: 1,
+  anims: {
+    default: { from: 0, to: 1, loop: true, speed: 8 },
+  },
+});
+
+loadSprite("play_left", "animations/play_left/sprite.png", {
+  sliceX: 2,
+  sliceY: 1,
+  anims: {
+    default: { from: 0, to: 1, loop: true, speed: 8 },
+  },
+});
+
+loadSprite("play_right", "animations/play_right/sprite.png", {
+  sliceX: 2,
+  sliceY: 1,
+  anims: {
+    default: { from: 0, to: 1, loop: true, speed: 8 },
+  },
+});
+
+loadSprite("refuse", "animations/refuse/sprite.png", {
+  sliceX: 2,
+  sliceY: 1,
+  anims: {
+    default: { from: 0, to: 1, loop: true, speed: 8 },
+  },
+});
+
+loadSprite("sleep", "animations/sleep/sprite.png", {
+  sliceX: 2,
+  sliceY: 1,
+  anims: {
+    default: { from: 0, to: 1, loop: true, speed: 8 },
+  },
+});
+
+loadSprite("walk_left", "animations/walk_left/sprite.png", {
+  sliceX: 2,
+  sliceY: 1,
+  anims: {
+    default: { from: 0, to: 1, loop: true, speed: 8 },
+  },
+});
+
+loadSprite("walk_right", "animations/walk_right/sprite.png", {
+  sliceX: 2,
+  sliceY: 1,
+  anims: {
+    default: { from: 0, to: 1, loop: true, speed: 8 },
+  },
+});
+
+
+    let pet
+
+    onLoad(() => {
+      pet = add([
+        sprite("idle", { anim: "default" }),
+        pos(130, 400),
+        scale(1.5),
+        anchor("center")
+      ])
+    })
+
+    window.setState = (state) => {
+      if (pet && animations[state]) {
+        pet.use(sprite(state))
+        pet.play("default")
+      } else {
+        pet.use(sprite(state))
+        pet.play("default")
+      }
+    }
+  </script>
+</body>
+</html>
