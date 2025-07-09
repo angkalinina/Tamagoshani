@@ -73,7 +73,7 @@ class Game:
 
     # ========== GAME ==========
     def update(self):
-        self.player_actions.update()
+
         self.player_state.update()
         self.player_state.handle_input()
 

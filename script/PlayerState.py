@@ -1,5 +1,4 @@
 ﻿from petcore.character import Tamagotchi
-from assets import load_animations
 from ui.resources import load_animations
 
 

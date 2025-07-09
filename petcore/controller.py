@@ -1,5 +1,7 @@
 ﻿from .repository import PetRepository
 from .actions import PetAction, apply_action
+from .character import Tamagotchi
+
 
 _instances = {}
 
