@@ -1,6 +1,6 @@
 ﻿import pygame
-from PlayerState import PlayerState
-from TimeManager import get_time_of_day
+from ui.player_state import PlayerState
+from system.time_manager import get_time_of_day
 from ui.resources import load_backgrounds
 
 
