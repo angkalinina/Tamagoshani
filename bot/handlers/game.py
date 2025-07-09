@@ -1,8 +1,8 @@
 ﻿import pygame
 from PlayerState import PlayerState
-from PlayerActions import PlayerActions
 from TimeManager import get_time_of_day
-from assets import load_backgrounds
+from ui.resources import load_backgrounds
+
 
 def handle_events():
     for event in pygame.event.get():
@@ -22,7 +22,6 @@ class Game:
         self.backgrounds = load_backgrounds()
 
         self.player_state = PlayerState(self.screen_width, self.screen_height)
-        self.player_actions = PlayerActions(self.player_state)
 
         self.clock = pygame.time.Clock()
         self.font = pygame.font.SysFont(None, 28)
@@ -115,3 +114,7 @@ class Game:
         # Текст
         text = self.font.render(f"{label}: {int(value)}", True, (255, 255, 255))
         self.screen.blit(text, (x + max_width + 10, y + 2))
+
+def update(self):
+    self.player_state.update()
+    self.player_state.handle_input()
