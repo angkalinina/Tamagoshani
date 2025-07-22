@@ -1,7 +1,8 @@
 ﻿import json
 import os
+from models import Pet
+from db import SessionLocal
 from .character import Tamagotchi
-
 
 class PetRepository:
     SAVE_FOLDER = "saves"
@@ -35,3 +36,26 @@ class PetRepository:
         }
         with open(filepath, "w") as f:
             json.dump(data, f)
+ @staticmethod
+    def load(user_id: int) -> Tamagotchi:
+        db = SessionLocal()
+        pet_db = db.query(Pet).filter(Pet.user_id == user_id).first()
+        db.close()
+        if not pet_db:
+            return Tamagotchi(name=f"Tama_{user_id}")
+        pet = Tamagotchi(name=pet_db.name)
+        pet.hunger = pet_db.hunger
+        pet.energy = pet_db.energy
+        return pet
+
+    @staticmethod
+    def save(user_id: int, pet: Tamagotchi):
+        db = SessionLocal()
+        pet_db = db.query(Pet).filter(Pet.user_id == user_id).first()
+        if not pet_db:
+            pet_db = Pet(user_id=user_id, name=pet.name)
+            db.add(pet_db)
+        pet_db.hunger = pet.hunger
+        pet_db.energy = pet.energy
+        db.commit()
+        db.close()

@@ -56,3 +56,11 @@ if (window.Telegram?.WebApp) {
   const user = Telegram.WebApp.initDataUnsafe?.user
   console.log("Telegram user:", user)
 }
+
+let petState = {
+  hunger: 70,
+  energy: 50,
+  sleeping: false,
+  refused: false,
+  lastUpdate: Date.now(),
+}
